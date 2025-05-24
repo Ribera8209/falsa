@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Citas</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: black;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      color: black;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registro de Citas</h1>
+  <form>
+    <label for="nombre">Nombre del Cliente</label>
+    <input type="text" id="nombre" name="nombre" required />
+
+    <label for="direccion">Dirección</label>
+    <input type="text" id="direccion" name="direccion" required />
+
+    <label for="correo">Correo Electrónico</label>
+    <input type="email" id="correo" name="correo" required />
+
+    <label for="sangre">Tipo de Sangre</label>
+    <input type="text" id="sangre" name="sangre" />
+
+    <label for="horario">Horario de Atención</label>
+    <input type="time" id="horario" name="horario" required />
+
+    <label for="fecha">Fecha de Atención</label>
+    <input type="date" id="fecha" name="fecha" required />
+
+    <label for="servicio">Tipo de Servicio</label>
+    <select id="servicio" name="servicio" required>
+      <option value="">Seleccione una opción</option>
+      <option value="peinado">Peinado</option>
+      <option value="limpieza">Limpieza</option>
+      <option value="corte">Corte</option>
+      <option value="uñas">Uñas</option>
+    </select>
+
+    <label for="telefono">Número de Contacto</label>
+    <input type="tel" id="telefono" name="telefono" required />
+
+    <button type="submit">Guardar Cita</button>
+  <form onsubmit="enviarFormulario(event)"><script>
+  function enviarFormulario(event) {
+    event.preventDefault(); // Evita que se recargue la página
+
+    const data = {
+      nombre: document.getElementById("nombre").value,
+      direccion: document.getElementById("direccion").value,
+      correo: document.getElementById("correo").value,
+      sangre: document.getElementById("sangre").value,
+      horario: document.getElementById("horario").value,
+      fecha: document.getElementById("fecha").value,
+      servicio: document.getElementById("servicio").value,
+      telefono: document.getElementById("telefono").value
+    };
+
+    fetch(https://script.google.com/macros/s/AKfycbzGLzkB9AgwwRU-UyTfnnGVz7y9QAjDwOPwo_s2cyyhvp7PIIl3wSai-1Bq0TSWE9Bu5g/exec, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => alert("¡Cita guardada con éxito!"))
+    .catch(error => alert("Ocurrió un error"));
+  }
+</script>
+</body>
+</html>
